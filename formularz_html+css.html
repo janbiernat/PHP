@@ -1,0 +1,149 @@
+<HTML><HEAD><META CHARSET="utf-8" /> 
+<META NAME="keywords" CONTENT="Formularz HTML+CSS, Formularz, Formularz HTML" /> 
+<META NAME="description" CONTENT="Strona zawiera przykładowy formularz online." /> 
+<LINK TYPE="text/css" REL="stylesheet" HREF="style.css" /> 
+<LINK REL="shortcut icon" HREF="logo.ico" /> 
+<TITLE>HTML+CSS, Przykładowy formularz (c)by Jan T. Biernat</TITLE> 
+<STYLE> 
+body { 
+  font-family          : arial; 
+  font-size            : 13pt; 
+  background-color     : #c0c0c0; 
+  background-image     : url('tlo.jpg'); 
+  background-attachment: fixed; 
+} 
+.edytorek { font-size:14pt; width:400px; height:25px; } 
+.fieldset_szer { width:370px; } 
+.lista_rozwijana { font-size:18pt; width:400px; height:40px; } 
+.przycisk { font-size:16pt; width:200px; height:33px; } 
+</STYLE> 
+</HEAD> 
+<BODY> 
+<FORM NAME="formularz" METHOD="post" ACTION=""> 
+      <TABLE BORDER="0"> 
+            <TR><TD>Tekst1</TD> 
+                <TD>:</TD> 
+                <TD><INPUT TYPE="text" NAME="Edit_PHP1" ID="Edit_JS1" CLASS="edytorek" PLACEHOLDER="Podaj tekst" MAXLENGTH="33" VALUE="" AUTOFOCUS /> 
+                </TD> 
+            </TR> 
+            <TR><TD>Tekst2</TD> 
+                <TD>:</TD> 
+                <TD><INPUT TYPE="text" NAME="Edit_PHP2" ID="Edit_JS2" CLASS="edytorek" PLACEHOLDER="Podaj tekst" MAXLENGTH="33" VALUE="Przykładowy formularz" /> 
+                </TD> 
+            </TR> 
+            <TR><TD>Tekst3</TD> 
+                <TD>:</TD> 
+                <TD><INPUT TYPE="text" NAME="Edit_PHP3" ID="Edit_JS3" CLASS="edytorek" PLACEHOLDER="Podaj tekst" MAXLENGTH="33" VALUE="Jan T. Biernat" /> 
+                </TD> 
+            </TR> 
+            <TR><TD>Liczba 1</TD> 
+                <TD>:</TD> 
+                <TD><INPUT TYPE="number" NAME="Numer_PHP1" ID="Numer_JS1" CLASS="edytorek" PLACEHOLDER="Podaj liczbę" VALUE="" /> 
+                </TD> 
+            </TR> 
+            <TR><TD>Liczba 2</TD> 
+                <TD>:</TD> 
+                <TD><INPUT TYPE="number" NAME="Numer_PHP2" ID="Numer_JS2" CLASS="edytorek" PLACEHOLDER="Podaj liczbę" MIN="3" MAX="10" VALUE="5" /> 
+                </TD> 
+            </TR> 
+            <TR><TD VALIGN="top">Rodzaj użytkownika</TD> 
+                <TD VALIGN="top">:</TD> 
+                <TD><FIELDSET CLASS="fieldset_szer">Uprawnienia 
+                              <BR /><INPUT TYPE="radio" NAME="RadioButton_PHP1" ID="RadioButton_JS1" VALUE="Wartość 1" CHECKED />Standardowy 
+                              <BR /><INPUT TYPE="radio" NAME="RadioButton_PHP1" ID="RadioButton_JS1" VALUE="Wartość 2" />Administrator 
+                    </FIELDSET> 
+                </TD> 
+            </TR> 
+            <TR><TD VALIGN="top">Płeć</TD> 
+                <TD VALIGN="top">:</TD> 
+                <TD><FIELDSET CLASS="fieldset_szer">Czy K?, Czy M? 
+                              <BR /><INPUT TYPE="radio" NAME="RadioButton_PHP2" ID="RadioButton_JS2" VALUE="Wartość 1" CHECKED />Kobieta 
+                              <BR /><INPUT TYPE="radio" NAME="RadioButton_PHP2" ID="RadioButton_JS2" VALUE="Wartość 2" />Mężczyzna 
+                    </FIELDSET> 
+                </TD> 
+            </TR> 
+            <TR><TD VALIGN="top">Rodzaj komputera</TD> 
+                <TD VALIGN="top">:</TD> 
+                <TD><FIELDSET CLASS="fieldset_szer">Co folisz? 
+                              <BR /><INPUT TYPE="radio" NAME="RadioButton_PHP3" ID="RadioButton_JS3" VALUE="Wartość 1" />Stacjonarny typu desktop 
+                              <BR /><INPUT TYPE="radio" NAME="RadioButton_PHP3" ID="RadioButton_JS3" VALUE="Wartość 2" CHECKED />Laptop 
+                    </FIELDSET> 
+                </TD> 
+            </TR> 
+            <TR><TD VALIGN="top">Płeć</TD> 
+                <TD VALIGN="top">:</TD> 
+                <TD><SELECT CLASS="lista_rozwijana" NAME="ComboBox_PHP1" ID="ComboBox_JS1"> 
+                           <OPTION>Kobieta</OPTION> 
+                           <OPTION SELECTED>Mężczyzna</OPTION> 
+                    </SELECT> 
+                </TD> 
+            </TR> 
+            <TR><TD VALIGN="top">Rodzaj komputera</TD> 
+                <TD VALIGN="top">:</TD> 
+                <TD><SELECT CLASS="lista_rozwijana" NAME="ComboBox_PHP2" ID="ComboBox_JS2"> 
+                           <OPTION SELECTED>Nie chcę podawać</OPTION> 
+                           <OPTION>Komputer typu desktop</OPTION> 
+                           <OPTION>Laptop</OPTION> 
+                    </SELECT> 
+                </TD> 
+            </TR> 
+            <TR><TD VALIGN="top">Wybierz komputer lub monitor</TD> 
+                <TD VALIGN="top">:</TD> 
+                <TD><SELECT CLASS="lista_rozwijana" NAME="ComboBox_PHP3" ID="ComboBox_JS3"> 
+                           <OPTGROUP LABEL="Komputer"> 
+                                    <OPTION>Stacjonarny</OPTION> 
+                                    <OPTION SELECTED>Laptop</OPTION> 
+                           </OPTGROUP> 
+                           <OPTGROUP LABEL="Ekran"> 
+                                    <OPTION>Błyszczący</OPTION> 
+                                    <OPTION>Matowy</OPTION> 
+                           </OPTGROUP> 
+                    </SELECT> 
+                </TD> 
+            </TR> 
+            <TR><TD VALIGN="top">Przedmiot</TD> 
+                <TD VALIGN="top">:</TD> 
+                <TD><INPUT TYPE="text" LIST="przedmioty" NAME="ComboBox_typ2_PHP1" ID="ComboBox_typ2_JS1" PLACEHOLDER="Wybierz przedmiot" CLASS="lista_rozwijana" /> 
+                          <DATALIST ID="przedmioty"> 
+                                   <OPTION VALUE="Informatyka" /> 
+                                   <OPTION VALUE="Technologie informacyjne" /> 
+                                   <OPTION VALUE="Obsługa komputera" /> 
+                                   <OPTION VALUE="Matematyka" /> 
+                                   <OPTION VALUE="Fizyka" /> 
+                                   <OPTION VALUE="Astronomia" /> 
+                                   <OPTION VALUE="Chemia" /> 
+                                   <OPTION VALUE="Angielski" /> 
+                                   <OPTION VALUE="Hiszpański" /> 
+                                   <OPTION VALUE="Historia" /> 
+                                   <OPTION VALUE="Polski" /> 
+                          </DATALIST> 
+                </TD> 
+            </TR> 
+            <TR><TD VALIGN="top">Przedmiot</TD> 
+                <TD VALIGN="top">:</TD> 
+                <TD><INPUT TYPE="text" LIST="przedmioty2" NAME="ComboBox_typ3_PHP2" ID="ComboBox_typ3_JS2" PLACEHOLDER="Wybierz przedmiot" CLASS="lista_rozwijana" /> 
+                          <DATALIST ID="przedmioty2"> 
+                                   <OPTION VALUE="Informatyka" LABEL="Przedmiot ścisły" /> 
+                                   <OPTION VALUE="Technologie informacyjne" LABEL="Ciężko określić" /> 
+                                   <OPTION VALUE="Obsługa komputera" LABEL="Ciężko określić" /> 
+                                   <OPTION VALUE="Matematyka" LABEL="Przedmiot ścisły" /> 
+                                   <OPTION VALUE="Fizyka" LABEL="Przedmiot ścisły" /> 
+                                   <OPTION VALUE="Astronomia" LABEL="Przedmiot ścisły" /> 
+                                   <OPTION VALUE="Chemia" LABEL="Przedmiot ścisły" /> 
+                                   <OPTION VALUE="Angielski" LABEL="Przedmiot humanistyczny" /> 
+                                   <OPTION VALUE="Hiszpański" LABEL="Przedmiot humanistyczny" /> 
+                                   <OPTION VALUE="Historia" LABEL="Przedmiot humanistyczny" /> 
+                                   <OPTION VALUE="Polski" LABEL="Przedmiot humanistyczny" /> 
+                          </DATALIST> 
+                </TD> 
+            </TR> 
+            <TR><TD COLSPAN="3" ALIGN="right"> 
+                   <INPUT TYPE="submit" VALUE="Akceptuj" NAME="Enter_PHP" ID="Enter_JS" ONCLICK="" CLASS="przycisk" /> 
+                   <INPUT TYPE="reset" VALUE="Wyczyść" CLASS="przycisk" /> 
+                </TD> 
+            </TR> 
+      </TABLE> 
+      <INPUT TYPE="hidden" NAME="Ukryty_PHP1" ID="Ukryty_JS1" VALUE="Tekst ukryty" /> 
+</FORM> 
+</BODY> 
+</HTML> 
