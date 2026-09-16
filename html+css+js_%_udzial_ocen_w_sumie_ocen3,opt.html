@@ -1,0 +1,91 @@
+<HTML><HEAD><META CHARSET="utf-8" />
+<TITLE>% udział poszczególnych ocen w całej sumie ocen 3, Optymalizacja (c)by Jan T. Biernat</TITLE>
+<STYLE>
+body {
+  background-color: #c0c0c0;
+  font-family     : verdana;
+  font-size       : 16pt;
+  color           : black;
+}
+input {
+  width    : 99px;
+  font-size: 16pt;
+}
+</STYLE>
+</HEAD>
+<SCRIPT>
+function PobierzDane(Kontrolka) {
+//Pobierz dane z kontrolki.
+  var Dane = ""; Dane = document.getElementById(Kontrolka).value;
+  var Liczba = 0;
+  if((Dane.length < 4) && (Dane.trim() != "")) {
+    Liczba = Number(Dane);
+    if(Liczba > 0) { return Liczba; } else { return 0; }
+  } else { return -1; }
+}
+//=
+function Oblicz() {
+//Oblicz % udział poszczególnych ocen w całej sumie ocen.
+  const Znak = '%';
+  var K = [];
+  var Suma = 0;
+  
+  for(var I = 0; I < 6; I++) {
+    K[I] = 0;
+    K[I] = PobierzDane('o'+(I+1).toString()+'b');
+    if(K[I] > 0) { Suma += K[I]; }
+  }
+
+  //Obliczenia.
+    if(Suma > 0) {
+      for(var I = 0; I < 6; I++) {
+        if(K[I] > 0) {
+          document.getElementById('w'+(I+1).toString()).innerHTML = ((K[I]*100)/Suma).toFixed(2).toString()+Znak;
+        } else { document.getElementById('w'+(I+1).toString()).innerHTML = "0.00%"; }
+      }
+    }
+}
+</SCRIPT>
+<BODY>
+% udział poszczególnych ocen w całej sumie ocen 3, Optymalizacja<BR /><BR />
+<FORM NAME="formularz">
+    <TABLE>
+        <TR><TD>1.0</TD>
+            <TD>:</TD>
+            <TD><INPUT TYPE="number" NAME="o1a" ID="o1b" CLASS="edytorek" MAXLENGTH="3" AUTOFOCUS />&nbsp;</TD>
+            <TD ID="w1">&nbsp;</TD>
+        </TR>
+        <TR><TD>2.0</TD>
+            <TD>:</TD>
+            <TD><INPUT TYPE="number" NAME="o2a" ID="o2b" CLASS="edytorek" MAXLENGTH="3" />&nbsp;</TD>
+            <TD ID="w2">&nbsp;</TD>
+        </TR>
+        <TR><TD>3.0</TD>
+            <TD>:</TD>
+            <TD><INPUT TYPE="number" NAME="o3a" ID="o3b" CLASS="edytorek" MAXLENGTH="3" />&nbsp;</TD>
+            <TD ID="w3">&nbsp;</TD>
+        </TR>
+        <TR><TD>4.0</TD>
+            <TD>:</TD>
+            <TD><INPUT TYPE="number" NAME="o4a" ID="o4b" CLASS="edytorek" MAXLENGTH="3" />&nbsp;</TD>
+            <TD ID="w4">&nbsp;</TD>
+        </TR>
+        <TR><TD>5.0</TD>
+            <TD>:</TD>
+            <TD><INPUT TYPE="number" NAME="o5a" ID="o5b" CLASS="edytorek" MAXLENGTH="3" />&nbsp;</TD>
+            <TD ID="w5">&nbsp;</TD>
+        </TR>
+        <TR><TD>6.0</TD>
+            <TD>:</TD>
+            <TD><INPUT TYPE="number" NAME="o6a" ID="o6b" CLASS="edytorek" MAXLENGTH="3" />&nbsp;</TD>
+            <TD ID="w6">&nbsp;</TD>
+        </TR>
+        <TR><TD COLSPAN="5" STYLE="text-align:right;">
+                <INPUT TYPE="submit" NAME="k1a" ID="k1b" VALUE="Oblicz" onClick="Oblicz(); return false;" STYLE="font-size:11pt; width:56px;" />
+                <INPUT TYPE="reset" NAME="k2a" ID="k2b" VALUE="Czyść" STYLE="font-size:11pt; width:56px;" />
+            </TD>
+        </TR>
+    </TABLE>
+</FORM>
+</BODY>
+</HTML>
