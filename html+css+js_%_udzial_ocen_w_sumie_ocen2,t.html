@@ -1,0 +1,113 @@
+<HTML><HEAD><META CHARSET="utf-8" />
+<TITLE>% udział poszczególnych ocen w całej sumie ocen 2, Tablice (c)by Jan T. Biernat</TITLE>
+<STYLE>
+body {
+  background-color: #c0c0c0;
+  font-family     : verdana;
+  font-size       : 16pt;
+  color           : black;
+}
+input {
+  width    : 99px;
+  font-size: 16pt;
+}
+</STYLE>
+</HEAD>
+<SCRIPT>
+function PobierzDane(Kontrolka) {
+//Pobierz dane z kontrolki.
+  var Dane = ""; Dane = document.getElementById(Kontrolka).value;
+  var Liczba = 0;
+  if((Dane.length < 4) && (Dane.trim() != "")) {
+    Liczba = Number(Dane);
+    if(Liczba > 0) { return Liczba; } else { return 0; }
+  } else { return -1; }
+}
+//=
+function ObliczProcent(W, S) {
+//Oblicz jaki % stanowi liczba W z całej sumy S.
+  var Procent = 0;
+  if((W > 0) && (S > 0)) {
+    Procent = ((W*100)/S);
+  }
+  return Procent.toFixed(2);
+}
+//=
+function Oblicz() {
+//Oblicz % udział poszczególnych ocen w całej sumie ocen.
+  const Znak = '%';
+  var K = [];
+  var Suma = 0;
+  
+  for(var I = 0; I < 6; I++) { K[I] = 0; }
+
+  K[0] = PobierzDane('o1b');
+  if(K[0] > 0) { Suma += K[0]; }
+
+  K[1] = PobierzDane('o2b');
+  if(K[1] > 0) { Suma += K[1]; }
+
+  K[2] = PobierzDane('o3b');
+  if(K[2] > 0) { Suma += K[2]; }
+
+  K[3] = PobierzDane('o4b');
+  if(K[3] > 0) { Suma += K[3]; }
+
+  K[4] = PobierzDane('o5b');
+  if(K[4] > 0) { Suma += K[4]; }
+
+  K[5] = PobierzDane('o6b');
+  if(K[5] > 0) { Suma += K[5]; }
+
+  //Obliczenia.
+    document.getElementById('w1').innerHTML = ObliczProcent(K[0], Suma).toString()+Znak;
+    document.getElementById('w2').innerHTML = ObliczProcent(K[1], Suma).toString()+Znak;
+    document.getElementById('w3').innerHTML = ObliczProcent(K[2], Suma).toString()+Znak;
+    document.getElementById('w4').innerHTML = ObliczProcent(K[3], Suma).toString()+Znak;
+    document.getElementById('w5').innerHTML = ObliczProcent(K[4], Suma).toString()+Znak;
+    document.getElementById('w6').innerHTML = ObliczProcent(K[5], Suma).toString()+Znak;
+}
+</SCRIPT>
+<BODY>
+% udział poszczególnych ocen w całej sumie ocen 2, Tablice<BR /><BR />
+<FORM NAME="formularz">
+    <TABLE>
+        <TR><TD>1.0</TD>
+            <TD>:</TD>
+            <TD><INPUT TYPE="number" NAME="o1a" ID="o1b" CLASS="edytorek" MAXLENGTH="3" AUTOFOCUS />&nbsp;</TD>
+            <TD ID="w1">&nbsp;</TD>
+        </TR>
+        <TR><TD>2.0</TD>
+            <TD>:</TD>
+            <TD><INPUT TYPE="number" NAME="o2a" ID="o2b" CLASS="edytorek" MAXLENGTH="3" />&nbsp;</TD>
+            <TD ID="w2">&nbsp;</TD>
+        </TR>
+        <TR><TD>3.0</TD>
+            <TD>:</TD>
+            <TD><INPUT TYPE="number" NAME="o3a" ID="o3b" CLASS="edytorek" MAXLENGTH="3" />&nbsp;</TD>
+            <TD ID="w3">&nbsp;</TD>
+        </TR>
+        <TR><TD>4.0</TD>
+            <TD>:</TD>
+            <TD><INPUT TYPE="number" NAME="o4a" ID="o4b" CLASS="edytorek" MAXLENGTH="3" />&nbsp;</TD>
+            <TD ID="w4">&nbsp;</TD>
+        </TR>
+        <TR><TD>5.0</TD>
+            <TD>:</TD>
+            <TD><INPUT TYPE="number" NAME="o5a" ID="o5b" CLASS="edytorek" MAXLENGTH="3" />&nbsp;</TD>
+            <TD ID="w5">&nbsp;</TD>
+        </TR>
+        <TR><TD>6.0</TD>
+            <TD>:</TD>
+            <TD><INPUT TYPE="number" NAME="o6a" ID="o6b" CLASS="edytorek" MAXLENGTH="3" />&nbsp;</TD>
+            <TD ID="w6">&nbsp;</TD>
+        </TR>
+        <TR><TD COLSPAN="5" STYLE="text-align:right;">
+                <INPUT TYPE="submit" NAME="k1a" ID="k1b" VALUE="Oblicz" onClick="Oblicz(); return false;" STYLE="font-size:11pt; width:56px;" />
+                <INPUT TYPE="reset" NAME="k2a" ID="k2b" VALUE="Czyść" STYLE="font-size:11pt; width:56px;" />
+            </TD>
+        </TR>
+    </TABLE>
+</FORM>
+</BODY>
+</HTML>
