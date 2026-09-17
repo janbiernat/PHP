@@ -1,0 +1,75 @@
+<HTML><HEAD><META CHARSET="utf-8" />
+<TITLE>Punkty na % (c)by Jan T. Biernat</TITLE>
+<STYLE>
+body {
+  background-color: #c0c0c0;
+  font-family     : verdana;
+  font-size       : 16pt;
+  color           : black;
+}
+table {
+  border         : 0px solid black;
+  border-collapse: collapse;
+}
+.td_nag {
+  background-color: #bbdefb;
+  text-align      : center;
+  color           : black;
+  font-weight     : bold;
+}
+td {
+  border          : 1px solid black;
+  background-color: white;
+  text-align      : right;
+  padding         : 4px;
+  padding-left    : 15px;
+  padding-right   : 15px;
+}
+input {
+  width    : 99px;
+  font-size: 16pt;
+}
+</STYLE>
+</HEAD>
+<SCRIPT>
+function Oblicz() {
+//Przelicz punkty na %.
+  var TPunkty = "", Tabela = "", StylKolor = "";
+  var LPunkty = 0, Licz = 0;
+
+  //Pobranie danych z kontrolki.
+    TPunkty = document.getElementById('kPunktyJS').value;
+    if(TPunkty.trim() != "") {
+      LPunkty = Number(TPunkty);
+    }
+
+  //Przelicz punkty na %.
+    Tabela = '<TABLE><TR><TD CLASS="td_nag">Punkty</TD>'
+            +'<TD CLASS="td_nag">%</TD></TR>';
+    for(Licz = 1; Licz < LPunkty+1; Licz++) {
+      StylKolor = '';
+      if(Licz % 2 == 0) { StylKolor = ' STYLE="background-color: #adeaea;"'; }
+      Tabela += '<TR><TD'+StylKolor+'>'+Licz.toString()+'</TD>'
+               +'<TD '+StylKolor+'>'+(Licz*100/LPunkty).toFixed(2).toString()+'</TD></TR>';
+    }
+    Tabela += "</TABLE>";
+    if(LPunkty > 0) {
+      document.getElementById('kResultatJS').innerHTML = Tabela;
+    } else { document.getElementById('kResultatJS').innerHTML = 'BŁĄD -?Brak danych!'; }
+}
+</SCRIPT>
+<BODY>
+Punkty na %<BR /><BR />
+<FORM NAME="formularz">
+    <TABLE>
+        <TR><TD>Maksymalna ilość punktów:</TD>
+            <TD><INPUT TYPE="number" NAME="kPunktyPHP" ID="kPunktyJS" CLASS="edytorek" MAXLENGTH="3" AUTOFOCUS />&nbsp;</TD>
+            <TD><INPUT TYPE="submit" NAME="kWykonajPHP" ID="kWykonajJS" VALUE="Oblicz" onClick="Oblicz(); return false;" STYLE="font-size:11pt; width:56px;" />
+                <INPUT TYPE="reset" NAME="kCzyscPHP" ID="kCzyscJS" VALUE="Czyść" STYLE="font-size:11pt; width:56px;" />
+            </TD>
+        </TR>
+    </TABLE><BR />
+    <P ID="kResultatJS"></P>
+</FORM>
+</BODY>
+</HTML>
